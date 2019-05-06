@@ -82,4 +82,14 @@ Type find_maximum( HType A, size_t N );
  */
 Type find_minimum( HType A, size_t N );
 
+/**
+ * @brief Given an array of data and a length, sorts the array in ascending order
+ *
+ * @param A - an array
+ * @param N - the size of the array
+ *
+ * @return none
+ */
+void sort_array( HType A, size_t N );
+
 #endif /* __STATS_H__ */
