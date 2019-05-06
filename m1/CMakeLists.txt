@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.13)
+project(m1 C)
+include_directories(inc)
+set(CMAKE_C_STANDARD 99)
+set(SOURCES src/main.c src/stats.c)
+add_executable(stats.out ${SOURCES})
