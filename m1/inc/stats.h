@@ -48,9 +48,9 @@ void print_array( HType A, size_t N );
  * @param A - an array
  * @param N - the size of the array
  *
- * @return the median value of the array
+ * @return the median value of the array ( note: the array is sorted in order to find the median value )
  */
-Type find_median( HType A, size_t N );
+double find_median( HType A, size_t N );
 
 /**
  * @brief Given an array of data and a length, returns the mean
@@ -60,7 +60,7 @@ Type find_median( HType A, size_t N );
  *
  * @return the mean value of the array
  */
-Type find_mean( HType A, size_t N );
+double find_mean( HType A, size_t N );
 
 /**
  * @brief Given an array of data and a length, returns the maximum
@@ -83,6 +83,19 @@ Type find_maximum( HType A, size_t N );
 Type find_minimum( HType A, size_t N );
 
 /**
+ * @brief Comparator used to sort an array
+ *
+ * @param lhs - left-hand-side of comparision
+ * @param rhs - right-hand-side of comparision
+ *
+ * @return
+ * < 0 the element pointed to by lhs goes before the element pointed to by rhs
+ *   0 the element pointed to by lhs is equivalent to the element pointed to by rhs
+ * > 0 the element pointed to by lhs goes after the element pointed to by rhs
+ */
+int compare( const void* lhs, const void* rhs );
+
+/**
  * @brief Given an array of data and a length, sorts the array in ascending order
  *
  * @param A - an array
@@ -90,6 +103,6 @@ Type find_minimum( HType A, size_t N );
  *
  * @return none
  */
-void sort_array( HType A, size_t N );
+void sort_array( HType A, size_t N, int ( * cmp )( const void*, const void* ) );
 
 #endif /* __STATS_H__ */
