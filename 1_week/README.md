@@ -1,4 +1,4 @@
-# Intro to Embedded Systems: Week 1
+# Embedded System Development Components
 
 ## Embedded System
 
