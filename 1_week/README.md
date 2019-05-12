@@ -1,6 +1,6 @@
 # Embedded System Development Components
 
-## Embedded System
+## Introduction to Embedded Systems
 
 ![](docs/01_def_embed_system.png)
 
