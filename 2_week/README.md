@@ -142,6 +142,54 @@ You will see if you open up your assembly file, main.s, there is a ton more info
 
 ## Preprocessor Directives
 
+![](docs/27_preprocessor_directives.png)
+
+![](docs/28_preprocessors_role.png)
+
+The preprocessor is bundled with the gcc application. You may remember that we said the preprocessor
+takes your original files and transforms them based on the directives you have defined within a file.
+You can think of this transformation as a search and replace for many directives.
+  * **-E** option tells the compiler to stop after the preprocessing stage
+
+![](docs/29_preprocessed_output.png)
+
+----
+![](docs/30_define_as_const.png)
+
+![](docs/31_macro_substitution.png)
+
+![](docs/32_macro_function.png)
+
+![](docs/33_macro_function_substitution_ok.png)
+
+![](docs/34_macro_function_substitution_ng.png)
+
+---
+![](docs/35_define_feature.png)
+
+![](docs/36_if_else_directives.png)
+
+![](docs/37_if_else_and_define_directives.png)
+
+---
+![](docs/38_include_directive.png)
+
+![](docs/39_include_directive.png)
+
+---
+![](docs/40_pragma_directive.png)
+
+---
+![](docs/41_compile_time_switch.png)
+
+![](docs/42_compile_time_switch.png)
+
+![](docs/43_compile_time_switch.png)
+
+![](docs/44_compile_time_switch.png)
+
+![](docs/45_compile_time_switch.png)
+
 ## Creating Header and Implementation Files
 
 ## Linkers
