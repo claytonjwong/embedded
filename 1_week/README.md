@@ -1,5 +1,9 @@
 # Embedded System Development Components
 
+  * [Introduction to Embedded Systems](1_week#introduction-to-embedded-systems)
+  * [Embedded Software Engineering](1_week#embedded-software-engineering)
+  * [C-Programming Review](1_week#c-programming-review)
+
 ## Introduction to Embedded Systems
 
 ![](docs/01_def_embed_system.png)
