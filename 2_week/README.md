@@ -9,7 +9,8 @@
   * [Makefiles](#makefiles)
   * [Other Useful GNU Bin Tools](#other-useful-gnu-bin-tools)
 
-## Introduction to Build Systems using GNU Toolsets
+
+# Introduction to Build Systems using GNU Toolsets
 
 ![](docs/01_build_environment.png)
 
@@ -78,7 +79,8 @@ from the program source files
 
 ![](docs/10_learning_outcomes.png)
 
-## Compiling and Invoking GCC
+
+# Compiling and Invoking GCC
 
 ![](docs/11_direct_build_process.png)
 
@@ -199,7 +201,8 @@ You can think of this transformation as a search and replace for many directives
 
 ![](docs/45_compile_time_switch.png)
 
-## Creating Header and Implementation Files
+
+# Creating Header and Implementation Files
 
 ![](docs/46_software_modules_and_libs.png)
 
@@ -246,7 +249,8 @@ You can think of this transformation as a search and replace for many directives
 
 ![](docs/64_platform_header_file.png)
 
-## Linkers
+
+# Linkers
 
 ![](docs/65_linking_and_locating.png)
 
@@ -349,7 +353,8 @@ by providing the -Wl or -Xlinker flag with GCC. And this allows us to pass flags
 ---
 ![](docs/85_elf_file.png)
 
-## Make
+
+# Make
 
 Built systems are very important for software teams. Without them, the process of creating a complex target executable
 would be very tedious and error prone for typical developer. There are many build generation systems out there
@@ -367,7 +372,8 @@ without loosing any information about the build configuration.
 
 ![](docs/89_gnu_make.png)
 
-## Makefiles
+
+# Makefiles
 
 ![](docs/90_gnu_make.png)
 
@@ -446,7 +452,8 @@ a single main.o file.
 ---
 ![](docs/115_makefile_summary.png)
 
-## Other Useful GNU Bin Tools
+
+# Other Useful GNU Bin Tools
 ![](docs/116_gnu_binutils.png)
 
 ![](docs/117_gnu_tools.png)

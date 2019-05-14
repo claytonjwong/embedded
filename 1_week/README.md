@@ -4,7 +4,7 @@
   * [Embedded Software Engineering](#embedded-software-engineering)
   * [C-Programming Review](#c-programming-review)
 
-## Introduction to Embedded Systems
+# Introduction to Embedded Systems
 
 ![](docs/01_def_embed_system.png)
 
@@ -70,7 +70,8 @@ This contains one of the ARM Cortex M4 processors and a large number of peripher
 Each of the core microcontroller components is represented in this architecture
 and there are numerous modules of each peripheral type.
 
-## Embedded Software Engineering
+
+# Embedded Software Engineering
 
 ![](docs/09_flow_diagram.png)
 
@@ -149,7 +150,8 @@ C-Programming is the most widely used language for embedded software design.
 Typical embedded engineers actually write a form of C called Embedded C. Embedded C differs
 from C because it puts a focus these key features.
 
-## C-Programming Review
+
+# C-Programming Review
 
 ![](docs/19_declaring_variables.png)
 
