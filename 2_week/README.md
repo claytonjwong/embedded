@@ -192,11 +192,267 @@ You can think of this transformation as a search and replace for many directives
 
 ## Creating Header and Implementation Files
 
+![](docs/46_software_modules_and_libs.png)
+
+---
+![](docs/47_code_reuse.png)
+
+![](docs/48_creating_modules.png)
+
+---
+![](docs/49_include_guards.png)
+
+![](docs/50_include_guards.png)
+
+![](docs/51_include_guards.png)
+
+![](docs/52_pragma_once.png)
+
+---
+![](docs/53_header_files.png)
+
+![](docs/54_including_precompiled_libs.png)
+
+![](docs/55_including_precompiled_libs.png)
+
+![](docs/56_string_and_stdio_libs.png)
+
+---
+![](docs/57_library_types.png)
+
+![](docs/58_compiled_libs_static.png)
+
+* Static libraries can be created using the archiver GNU tool **ar**
+
+![](docs/59_compiled_libs_dynamic.png)
+
+![](docs/60_how_libs_compiled_which_arch.png)
+
+---
+![](docs/61_module_design.png)
+
+![](docs/62_platform_header_file.png)
+
+![](docs/63_platform_header_file.png)
+
+![](docs/64_platform_header_file.png)
+
 ## Linkers
+
+![](docs/65_linking_and_locating.png)
+
+![](docs/66_linker_file.png)
+
+Assembly and C files get compiled from the same project into objects. Compiled library code is pulled
+in during linking.
+* **Linker File** is input into our linking and locating stage
+  * informs locator how to map the executable into the proper addresses
+  * gcc **-T** flag
+
+![](docs/67_linking_process.png)
+
+---
+![](docs/68_linking_object_file.png)
+
+![](docs/69_linking_object_file.png)
+
+![](docs/70_linking_object_file.png)
+
+---
+![](docs/71_libraries_static.png)
+
+Pre-compiled static libraries will directly link at linking time into your output executable.
+
+![](docs/72_libraries_dynamic.png)
+
+Dynamically linked symbols will contain paths to dynamic libraries already installed on your device.
+This could cause issues if there was an incompatibility of the library that is installed on the device
+and the library headers you are including
+
+If you are writing code for an embedded or an embedded OS platform, there are likely libraries already installed
+on the device. So there's no reason to statically compile and upload. Instead, you can just dynamically link
+with these at runtime, saving code space.
+
+---
+![](docs/73_main_start_up_and_exit.png)
+
+You should wonder what happens before main is called. There are startup routines that run
+before main that are usually defined in some C standard libraries. These are automatically included
+in your build as a static library. If you directly invoke the linker instead of letting GCC automatically include this,
+you will see an error when you cannot find the entry or extra routines around main.
+Invoking the linker directly will have you give it these libraries manually. You can also tell GCC
+to stop this if you wish. But that would mean you have to define your own initialization
+and exit software routines. You can do this by providing the -nostdlib flag.
+
+---
+![](docs/74_var_and_func_symbols.png)
+
+![](docs/75_var_and_func_symbols.png)
+
+![](docs/76_linker_file_map.png)
+
+Each architecture is very different, so the locator will need some special direction on how to perform
+this general file to specific address mapping.  The linker file contains these special directions
+that are used during the memory relocation process. This file provides the locator with information
+on where the physical memory regions of the processor interface with the defined code regions.
+This file is architecture-dependent and it needs to know what the physical memory map of your embedded system is.
+
+![](docs/77_linker_script_details.png)
+
+![](docs/78_linker_script_example.png)
+
+Your program will be split into many memory regions during installation. These segments are the physical parts
+of memory on your microcontroller. In contrast, your program executable is also broken up into many sections
+of code and data. These sections are then mapped into these physical memory segments. An example
+of different segments include the code, initialization data, stack, and heap. Since the different physical memory
+segments are going to be in different locations or addresses, the linker needs to know where code memory
+should be assigned. Also, for the data that code uses, exact addresses need to be given to your program
+so it can find the data it's trying to operate on.
+
+![](docs/79_linker_script_example.png)
+
+Each memory segment also provides the starting location and the length of memory that our program data
+can be installed into. The total number of memory segments must be equal to or larger in size than
+what the total compiled code and data sections add up to, otherwise you will have errors at installation.
+To help prevent this, the linker script can also contain small checks to verify that your memory regions
+are not overallocated. Here we have an example where we verify that the heap in the stack are not overflowing
+into one another in data memory. And if they do, the linker should throw an error and exit.
+
+![](docs/80_linker_script_example.png)
+
+---
+![](docs/81_memory_segments.png)
+
+![](docs/82_memory_segments.png)
+
+![](docs/83_memory_segments.png)
+
+After you've finished linking and locating, you may be interested in seeing how the memory allocation was done.
+For this, you can tell the linker to produce a map file. This file will provide information on how all
+of these regions and memory segments were used and allocated. This map file also gives you specific addresses
+for the allocations.  In order to generate a map file, you need to provide the linker the map flag.
+
+![](docs/84_linker_flags.png)
+
+If you choose to invoke the linker indirectly through the compiler, you can still specify these flags
+by providing the -Wl or -Xlinker flag with GCC. And this allows us to pass flags down through GCC to the linker.
+
+---
+![](docs/85_elf_file.png)
 
 ## Make
 
+Built systems are very important for software teams. Without them, the process of creating a complex target executable
+would be very tedious and error prone for typical developer. There are many build generation systems out there
+besides make but make is still widely used today.
+
+Build systems allow for abstraction from the target software and architecture, so that they are portable
+and can be added to version control. This provides a mechanism for teams to create consistent builds over time
+without loosing any information about the build configuration.
+
+![](docs/86_make_build_manually.png)
+
+![](docs/87_make_build_manually_ide.png)
+
+![](docs/88_gcc_and_make.png)
+
+![](docs/89_gnu_make.png)
+
 ## Makefiles
 
+![](docs/90_gnu_make.png)
+
+![](docs/91_makefiles.png)
+
+![](docs/92_makefile_rules.png)
+
+![](docs/93_gnu_toolchain.png)
+
+Make can be configured to use whichever Complier Toolchain and build process of your choosing.
+You could use vendor provider toolchains or continue to use GCC as the toolchain with the same process
+to generate files that we did with our five steps of building. Make could even be configured
+to support multiple versions of a compiler or even multiple compilers with the same Makefile.
+
+![](docs/94_gnu_make.png)
+
+![](docs/95_ide_make.png)
+
+---
+*Make examples:*
+![](docs/96_make_example.png)
+
+![](docs/97_make_example.png)
+
+If I run make all, this will perform a complete build to create an executable output file.
+The term all which uses an arbitrary name for a compile all type of target.
+
+As you can see all individual compile command were run for each file. In addition
+a final link command was run. We can see that the current directory now contains of these output files
+from the build process.
+
+![](docs/98_make_example.png)
+
+![](docs/99_make_object.png)
+
+We can also define our build targets to run individual build files like the generation
+of the main.o object file. We could do this by running make main.o, as you can see only a single command
+was issued for the build and all the appropriate command options were put in there. Leaving in this folder
+a single main.o file.
+
+---
+![](docs/100_makefile_scm.png)
+
+![](docs/101_makefiles_overview.png)
+
+![](docs/102_makefile_rules.png)
+
+![](docs/103_makefile_syntax.png)
+
+![](docs/104_makefile_variables.png)
+
+![](docs/105_makefile_variables.png)
+
+![](docs/106_makefile_variables.png)
+
+![](docs/107_makefile_variables.png)
+
+---
+![](docs/108_makefile_pattern_matching.png)
+
+![](docs/109_makefile_pattern_matching.png)
+
+---
+![](docs/110_makefile_target.png)
+
+---
+![](docs/111_makefile_functions.png)
+
+---
+![](docs/112_makefile_params.png)
+
+![](docs/113_makefile_variables.png)
+
+![](docs/114_makefile_variables.png)
+
+---
+![](docs/115_makefile_summary.png)
+
 ## Other Useful GNU Bin Tools
+![](docs/116_gnu_binutils.png)
+
+![](docs/117_gnu_tools.png)
+
+![](docs/118_gnu_size.png)
+
+![](docs/119_gnu_nm.png)
+
+![](docs/120_gnu_nm_example.png)
+
+![](docs/121_gnu_objcopy.png)
+
+![](docs/122_gnu_objdump.png)
+
+![](docs/123_gnu_objdump.png)
+
+![](docs/124_gnu_readelf.png)
 
