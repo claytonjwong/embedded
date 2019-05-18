@@ -290,12 +290,16 @@ with these at runtime, saving code space.
 ![](docs/73_main_start_up_and_exit.png)
 
 You should wonder what happens before main is called. There are startup routines that run
-before main that are usually defined in some C standard libraries. These are automatically included
-in your build as a static library. If you directly invoke the linker instead of letting GCC automatically include this,
-you will see an error when you cannot find the entry or extra routines around main.
-Invoking the linker directly will have you give it these libraries manually. You can also tell GCC
-to stop this if you wish. But that would mean you have to define your own initialization
+before main that are usually defined in some C standard libraries.
+
+* Example: https://en.wikipedia.org/wiki/Crt0
+
+These are automatically included in your build as a static library. If you directly invoke the linker instead
+of letting GCC automatically include this, you will see an error when you cannot find the entry
+or extra routines around main. Invoking the linker directly will have you give it these libraries manually.
+You can also tell GCC to stop this if you wish. But that would mean you have to define your own initialization
 and exit software routines. You can do this by providing the -nostdlib flag.
+
 
 ---
 ![](docs/74_var_and_func_symbols.png)
