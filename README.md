@@ -15,5 +15,12 @@
   * [Makefiles](2_week#makefiles)
   * [Other Useful GNU Bin Tools](2_week#other-useful-gnu-bin-tools)
 * [**Week 3:** Memory Types, Segments and Management](3_week)
-
+	* [Introduction to Memory Organization](3_week#introduction-to-memory-organization)
+	* [Memory Architectures](3_week#memory-architectures)
+	* [Memory Segments](3_week#memory-segments)
+	* [Data Memory](3_week#data-memory)
+	* [Special Keywords](3_week#special-keywords)
+	* [The Stack](3_week#the-stack)
+	* [The Heap](3_week#the-heap)
+	* [Code Memory](3_week#code-memory)
 * [**Week 4:** Final Assessment](4_week)
