@@ -151,7 +151,7 @@ You will see if you open up your assembly file, main.s, there is a ton more info
 ![](docs/26_create_assembly_code_with_symbols.png)
 
 
-## Preprocessor Directives
+# Preprocessor Directives
 
 ![](docs/27_preprocessor_directives.png)
 
