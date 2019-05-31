@@ -1,11 +1,11 @@
 # Introduction to Embedded Systems Software and Development Environments
 ![University of Colorado Boulder](docs/UCBoulder.png)
 
-* [**Week 1:** Embedded System Development Components](1_week)
+* [**Week 1: Embedded System Development Components**](1_week)
   * [Introduction to Embedded Systems](1_week#introduction-to-embedded-systems)
   * [Embedded Software Engineering](1_week#embedded-software-engineering)
   * [C-Programming Review](1_week#c-programming-review)
-* [**Week 2:** Compilation with GCC and GNU Make](2_week)
+* [**Week 2: Compilation with GCC and GNU Make**](2_week)
   * [Introduction to Build Systems using GNU Toolsets](2_week#introduction-to-build-systems-using-gnu-toolsets)
   * [Compiling and Invoking GCC](2_week#compiling-and-invoking-gcc)
   * [Preprocessor Directives](2_week#preprocessor-directives)
@@ -14,7 +14,7 @@
   * [Make](2_week#make)
   * [Makefiles](2_week#makefiles)
   * [Other Useful GNU Bin Tools](2_week#other-useful-gnu-bin-tools)
-* [**Week 3:** Memory Types, Segments and Management](3_week)
+* [**Week 3: Memory Types, Segments and Management**](3_week)
 	* [Introduction to Memory Organization](3_week#introduction-to-memory-organization)
 	* [Memory Architectures](3_week#memory-architectures)
 	* [Memory Segments](3_week#memory-segments)
@@ -23,4 +23,4 @@
 	* [The Stack](3_week#the-stack)
 	* [The Heap](3_week#the-heap)
 	* [Code Memory](3_week#code-memory)
-* [**Week 4:** Final Assessment](4_week)
+* [**Week 4: Final Assessment**](4_week)
