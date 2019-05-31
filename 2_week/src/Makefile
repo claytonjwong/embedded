@@ -50,7 +50,7 @@ ifeq ($(PLATFORM), MSP432)
 	ARCH = armv7e-m
 	CPU = cortex-m4
 	SPECS = nosys.specs
-	LINKER_FILE = /Users/clayton.wong/workspace/ese-coursera-course1/assessments/m2/msp432p401r.lds
+	LINKER_FILE = msp432p401r.lds
 	LDFLAGS = -Wl,-Map=c1m2.map
 	PLATFORM_FLAGS = -march=$(ARCH) -mcpu=$(CPU) --specs=$(SPECS) -T $(LINKER_FILE)
 	OBJECTS := $(OBJECTS) $(SOURCES_MSP432:.c=.o)
