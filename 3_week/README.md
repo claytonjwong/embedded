@@ -176,13 +176,96 @@ where certain pieces of data exist.
 
 ![](docs/4_data_init_vars.png)
 
-
-
 # Special Keywords (Const, Extern, Static)
+![](docs/5_data_characteristics.png)
+
+![](docs/5_data_locations.png)
+
+![](docs/5_c_keywords.png)
+
+![](docs/5_const_keyword1.png)
+
+![](docs/5_const_keyword2.png)
+
+![](docs/5_type_modifiers.png)
+
+![](docs/5_storage_classes.png)
+
+![](docs/5_auto_keyword.png)
+
+![](docs/5_static_keyword.png)
+
+![](docs/5_extern_keyword.png)
+
+![](docs/5_register_keyword.png)
+
+![](docs/5_data_segment_summary.png)
 
 # The Stack
 
+The stack is a vital memory segment for software developers. Stack is automatically used by the compiler, which in turn utilized architecture-specific processes and instructions to call and return from a routine. All of these operations get compiled into the function call. There's still overhead, in order to call and return from a function, and the memory region of the stack occupies part of data memory. This is reserved at compile time, allocated at run time, and the operations to interact with this region are introduced at compilation. However, the memory itself is reused throughout the program as different functions can get called to allocate and de-allocate data in this region.
+
+![](docs/6_stack.png)
+
+![](docs/6_stack_characteristics.png)
+
+![](docs/6_calling_convention.png)
+
+A programmer can nest routines within one another. And the program has the ability to enter and return from each of these routines, without effecting the calling routine's state. The method of describing how to pass data in and out of a routine is referred to as a calling convention. This can be generalized across all routines in an architecture.  A calling convention should specify architecture specific concepts on how the CPU and the stack are used. Calling conventions differ across architectures, as ARM architecture have different calling conventions from other risk type processors. This is because internal CPU registers and a stack memory management needs to be modified to accommodate a change in normal execution flow, the stack is used to allocate, save, and restore information for a calling convention.
+
+![](docs/6_stack_implementation.png)
+
+![](docs/6_stack_frame1.png)
+
+![](docs/6_stack_frame2.png)
+
+![](docs/6_stack_frame3.png)
+
+![](docs/6_stack_registers1.png)
+
+![](docs/6_stack_registers2.png)
+
+![](docs/6_stack_registers3.png)
+
+![](docs/6_stack_growth.png)
+
+![](docs/6_stack_operations.png)
+
+![](docs/6_stack_overflow.png)
+
 # The Heap
 
+As embedded system architectures scale up in complexity and size, the likelihood of heap use on a system is a near guarantee. The heap requires direct invocations to utilize the memory, which leads to more overhead spent by the CPU to manage this region at runtime. This overhead existed with the stack as well, but the heap has the nice advantage of giving us a dynamic piece of memory that can have a lifetime longer than a function but less than a program.
+
+![](docs/7_heap1.png)
+
+![](docs/7_heap2.png)
+
+![](docs/7_heap_lifetime.png)
+
+![](docs/7_heap_functions1.png)
+
+![](docs/7_heap_functions2.png)
+
+![](docs/7_heap_functions3.png)
+
+![](docs/7_heap_allocation1.png)
+
+![](docs/7_heap_allocation2.png)
+
+![](docs/7_heap_functions4.png)
+
+![](docs/7_failed_allocation.png)
+
+![](docs/7_malloc_example.png)
+
+![](docs/7_fragmentation.png)
+
+![](docs/7_heap_issues.png)
+
+
 # Code Memory
+
+
+
 
