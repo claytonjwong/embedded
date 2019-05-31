@@ -263,9 +263,36 @@ As embedded system architectures scale up in complexity and size, the likelihood
 
 ![](docs/7_heap_issues.png)
 
-
 # Code Memory
 
+Code memory contains our program and also our data in some cases. The code memory is usually a lot larger than our data memory, because code memory is not meant to be rewritten during run time. When we install program code, we want that information to persist in between power cycles. More advanced architectures with embedded OS support allow for code memory to be written and installed while the processor is running. But most microcontrollers do not support it this way. Installing a new program requires a very particular process to interface with the flash memory. However, the way we broke down a program's code memory into the code segment is very similar to how we divided our data memory into smaller subsegments of data.
 
+![](docs/8_three_types_of_memory.png)
+
+![](docs/8_code_memory.png)
+
+![](docs/8_linker_file.png)
+
+![](docs/8_memory_segments.png)
+
+![](docs/8_vector_table1.png)
+
+![](docs/8_vector_table2.png)
+
+![](docs/8_text_segment.png)
+
+![](docs/8_const_segment.png)
+
+![](docs/8_init_segments1.png)
+
+![](docs/8_init_segments2.png)
+
+![](docs/8_bootloader1.png)
+
+![](docs/8_bootloader2.png)
+
+![](docs/8_std_libs.png)
+
+One last note about these code segments and these C standard functions. You do not automatically need to include these. Compilers will automatically use some C standard functions when your code is compiled. You can avoid the addition of all these extra sub segments by writing your own bare metal C with no standard library compiler flags. Or by writing your own assembly directly. However, this is not suggested as some of the standards library functionality makes writing your programs much easier. Like defining what happens at start up and program completion. In addition, it will map unsupported operations for your architecture into equivalent software processes.
 
 
