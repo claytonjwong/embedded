@@ -31,6 +31,9 @@
 * [Makefile Tutorial](https://gist.github.com/isaacs/62a2d1825d04437c6f08)
 * [Friendly ARM](https://www.friendlyarm.com/)
   * [NanoPi NEO2](http://www.nanopi.org/NanoPi-NEO2_Feature.html)
+* [Ubuntu VM Files](https://drive.google.com/drive/folders/0B-1k2IWgzas8eGxWVTM2ZDY4dTQ)
+  * user/pass: ecee
+  
 
 ---
 ## Assignments
