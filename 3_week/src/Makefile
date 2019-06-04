@@ -102,9 +102,17 @@ print-% :
 #	20000890 b g1
 #	20000890 l       .bss	00000004 g1
 #
+#	arm-none-eabi-nm memory | grep g2 && arm-none-eabi-objdump -x memory | grep g2
+#	00000d7c R g2
+#	00000d7c g     O .rodata	00000004 g2
+#
 #	$ arm-none-eabi-nm memory | grep g3 && arm-none-eabi-objdump -x memory | grep g3
 #	20000004 D g3
 #	20000004 g     O .data	00000001 g3
+#
+#	$ arm-none-eabi-nm memory | grep g4 && arm-none-eabi-objdump -x memory | grep g4
+#	20000894 B g4
+#	20000894 g     O .bss	00000001 g4
 #
 #	$ arm-none-eabi-nm memory | grep g5 && arm-none-eabi-objdump -x memory | grep g5
 #	20000008 D g5
@@ -117,15 +125,48 @@ print-% :
 #	00000040 g     F .text	00000000 _mainCRTStartup
 #	000000b4 g     F .text	00000058 main
 #
+#	$ arm-none-eabi-nm memory | grep func && arm-none-eabi-objdump -x memory | grep func
+#	00000108 T func
+#	00000108 g     F .text	00000074 func
 #
-#	Symbol            Segment     Sub-Segment    Permissions    Lifetime    Answer
-#	g1                data        bss            rw             program     2332
-#	g3                data        data           rw             program     2432
-#	g3                data        data           rw             program     2432
-#	l2		          register    none           rw             function    4631 X
-#	l3                data        data           rw             function    2431 X
-#	f1                data        stack          rw             function    2131
-#	f3                data        stack          rw             function    2131
-#	"Hello World!"    data        stack          r              function    2111 X
-#	main              data        text           r              function    2711 X
+#	$ cat memory.map | grep main
+#								  main.o (malloc)
+#	LOAD main.o
+#					0x0000000000000040                _mainCRTStartup
+#	 .text          0x00000000000000b4       0x58 main.o
+#					0x00000000000000b4                main
+#	 .rodata        0x0000000000000d7c        0x4 main.o
+#	 .data          0x0000000020000004        0x1 main.o
+#	 .bss           0x0000000020000890        0x5 main.o
+#					0x0000000000000068       0x2e main.o
+#	 .comment       0x0000000000000000       0x75 main.o
+#
+#
+#	$ arm-none-eabi-objdump -s -j.rodata memory
+#
+#	memory:     file format elf32-littlearm
+#
+#	Contents of section .rodata:
+#	 0d7c 2d000000 48656c6c 6f20576f 726c6421  -...Hello World!
+#	 0d8c 0a000000 38000020                    ....8..
+#
+#
+#	Symbol            Segment     Sub-Segment    Permissions    Lifetime      Answer
+#   g1                data        bss            rw             program       2332
+#   g2                code        const/rodata   r              program       1512
+#   g3                data        data           rw             program       2432
+#   g4                data        bss            rw             program       2332
+#   g5                data        data           rw             program       2432
+#   N                 none        none           none           none          5644
+#   l1                register    none           rw             function      4631
+#   l2                data        stack          rw             function      2131
+#   *l2               data        heap           rw             indefinite    2233
+#   l3                data        stack          rw             function      2131
+#   f1                data        stack          rw             function      2131
+#   f2                data        bss            rw             program       2332
+#   f3                data        stack          rw             function      2131
+#   "Hello World!"    code        const/rodata   r              program       1512
+#   SOME_VALUE        none        none           none           none          5644
+#   main              data        text           r              function      1712
+#   func              data        text           r              function      1712
 #------------------------------------------------------------------------------
