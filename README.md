@@ -614,8 +614,8 @@ was derived from the commands and output from the previous section above.
     f3                data        stack          rw             function      2131
     "Hello World!"    code        const/rodata   r              program       1512
     SOME_VALUE        none        none           none           none          5644
-    main              data        text           r              function      1712
-    func              data        text           r              function      1712
+    main              code        text           r              function      1712
+    func              code        text           r              function      1712
 ```
 
 #### FIXME: CMakeLists.txt
